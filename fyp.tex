@@ -14,7 +14,7 @@
 \usepackage{microtype}      % microtypography
 \usepackage{lipsum}
 
-\title{Segmentation of Lymph tissues and localization of Cancer cells}
+\title{AI in Medicine : Segmentation of Lymph tissues and localization of Cancer cells}
 
 
 \author{
@@ -31,12 +31,17 @@
 \maketitle
 
 \begin{abstract}
-    abs 
+    Artificial Intelligence has been setting the benchmark for almost all commercial and research fields. Since the rapidly growing popularity of these approaches now draw the interests of the people in the resepective fields of application, we now define state of the art benchmarks with respect to how well several networks perform in different fields. Medical Imaging and the analysis of these images are no different. The polished techniques in Digital Image Processing such as the various filters, transforms, thresholding techniques have already been in use to reduce redundant human work when these techniques can perform pattern recognition for trivial, repititive tasks. The effect of the evolution of Deep Learning has allowed the learning of complex convolution filters using Convolutional Neural Networks(CNNs) which now permit the detection of intricate patterns and segmenting them to such an extent that these now become more efficient than the human eye in several cases. Medical Images however, post various challenges that are usually absent in other applications of Deep Learning in Computer Vision. 
+
+    The first and primary issue is the quantity of data available. The amount of data available is nowhere close to the other real world applications such as classification of cusines by their snapshots. Moreover, medical images cannot be readily scraped or taken from the real world. Taking the problem at hand, one cannot simply step out into the world and acquire scanned and labelled images of Lymph Tissues. Their aquisition depends on Medical Institutions. Furthermore, the process of capturing, labelling, processing and releasing such a dataset is difficult and requires specialized attention from medical professionals. The second issue is that this, combined with the fact that expensive equipment may be required for their collection makes the process expensive.
+
+    Segmentation adds another complexity:\textbf{The complexity of effort}. Segmentation involves a pixel to pixel mapping between the input and an output. Every single tissue sample image needs to be segmented by a medical expert for us to train an algorithm to do so automatically on other images. This process is tedious. In this project, along with reviewing certain approaches of interest, I am going to achive the a segmentation map on the input image without using a segmentation levels and am also going to discuss some alternative methods in which the above claimed can be achieved and when and where which should be preferred.
+    
 \end{abstract}
 
 
 % keywords can be removed
-\keywords{First keyword \and Second keyword \and More}
+\keywords{Semantic Segmentation\and Medical Image Analysis \and Associative Networks \and Deep Learning}
 
 
 \section{Introduction}
@@ -57,7 +62,6 @@
 
 \subsubsection{Headings: third level}
 \lipsum[6]
-
 \paragraph{Paragraph}
 \lipsum[7]
 
