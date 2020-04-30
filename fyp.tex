@@ -58,14 +58,37 @@ There has been a huge upsurge in the replacement of tedious and laborious work w
 \begin{center}
     \begin{figure}[!h!t!b]
         \centerline{\includegraphics[width=105mm,height=65mm]{images/segs.png}}
-        \caption{Some Segmented images}
+        \caption{Some Segmented images : Row-1 has the input images and row 2 has the output images also known as the segmented images or the segmentation maps}
         \label{fig:1}
     \end{figure}
 \end{center}
 
-Segmentation is p
-\cite{kour2014real}
+Segmentation is not limited to the world of medical prognosis. It is applicable in several fields of interest such as Handwriting analysis as seen in Kaur et. al.\cite{kour2014real}. The usual idea behind segmentation would be to design a mathematical function that proposes a mapping between input and output pixels. As seen in Fig. \ref{fig:1}, the left-most image is one that segments the retinal vesicles of the eye. Such a work would require constant supervision and analysis of such images manually by medical professionals as such a work requires a degree of domain knowledge and expertise.
 
+This problem is one typical area where we would want to apply Image Processing to either independently solve the problem or to make the job easier by minimizing the human sipervision involved. The motivation as such, behind my analysis of approaches and the development of the project is the explotation of data to learn functions that map from the input image to the output image. However, such a task requires data in such a format that every input image has a corresponding output image in the dataset and this needs to be prepared as the dataset by the said professionals. 
+
+This project shall deal with a detailed comparative analysis on several different approaches on that are used in Semantic Segmentation but also discuss the main process under consideration where we DO NOT have to use segmentation data but we can still Localize the affected areas simply from the available data. This project shall be beneficial for the localization of cells with or without segmentation data and if segmentation data is available, the comparative analysis shall help in the choice of approach as will be beneficial for the project. 
+
+\subsection{Objective}
+The Objective of this project is to achieve the localization of cancerous cells in slides containing lymph tissues in general. The specific problem we shall be dealing with is the identification of metastatic tissues in the histopathelogical scans of lymph node sections. 
+
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=105mm,height=65mm]{images/metastases.png}}
+        \caption{The cells and a certain box showing the areas of possible interest}
+        \label{fig:2}
+    \end{figure}
+\end{center}
+
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=105mm,height=65mm]{images/gradcam.png}}
+        \caption{Gradcam or the regions in the input image that most affect the output in the image}
+        \label{fig:3}
+    \end{figure}
+\end{center}
+
+\newpage
 \bibliographystyle{unsrt}  
 
 \bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
