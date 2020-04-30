@@ -1,19 +1,22 @@
 \documentclass[19pt]{article}
 
-
 \usepackage{arxiv}
+\usepackage{makeidx}
+\usepackage{fancyhdr}
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
 \usepackage{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
+\usepackage{graphicx}
 \usepackage{amsfonts}       % blackboard math symbols
 \usepackage{amsmath}
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{lipsum}
 
+\pagestyle{fancy}
 \title{AI in Medicine : Segmentation of Lymph tissues and localization of Cancer cells}
 
 
@@ -37,99 +40,34 @@
 
     Segmentation adds another complexity:\textbf{The complexity of effort}. Segmentation involves a pixel to pixel mapping between the input and an output. Every single tissue sample image needs to be segmented by a medical expert for us to train an algorithm to do so automatically on other images. This process is tedious. In this project, along with reviewing certain approaches of interest, I am going to achive the a segmentation map on the input image without using a segmentation levels and am also going to discuss some alternative methods in which the above claimed can be achieved and when and where which should be preferred.
     
-\end{abstract}
-
-
-% keywords can be removed
 \keywords{Semantic Segmentation\and Medical Image Analysis \and Associative Networks \and Deep Learning}
+\end{abstract}
+\newpage
+    \tableofcontents
+\newpage
+% keywords can be removed
+
 
 
 \section{Introduction}
-\lipsum[2]
-\lipsum[3]
+The upsurge in the dominance of Deep Learning in defining the Statei-of-the-Art in a great variety of fields. Both Research and Industrial organizations all over the world are on a lookout to capitalize on the edge provided by Deep Learning and to leverage an increase in performance or profit in accordance with the goals of the organization. With data being in abundance in this digital age and the greatly evolved compute capacity with the rise of GPUs (Graphical Processing Units), the tedious and compute hungry processing of training models on particular datasets has become easier and practically feasable.
 
-
-\section{Headings: first level}
-\label{sec:headings}
-
-\lipsum[4] See Section \ref{sec:headings}.
-
-\subsection{Headings: second level}
-\lipsum[5]
-\begin{equation}
-\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
-\end{equation}
-
-\subsubsection{Headings: third level}
-\lipsum[6]
-\paragraph{Paragraph}
-\lipsum[7]
-
-\section{Examples of citations, figures, tables, references}
-\label{sec:others}
-\lipsum[8] \cite{kour2014real,kour2014fast} and see \cite{hadash2018estimate}.
-
-The documentation for \verb+natbib+ may be found at
-\begin{center}
-  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
-Of note is the command \verb+\citet+, which produces citations
-appropriate for use in inline text.  For example,
-\begin{verbatim}
-   \citet{hasselmo} investigated\dots
-\end{verbatim}
-produces
-\begin{quote}
-  Hasselmo, et al.\ (1995) investigated\dots
-\end{quote}
+\subsection{Motivation}
+There has been a huge upsurge in the replacement of tedious and laborious work with algortihms to automate the process. Segmentation is no different. Segmentation is the process of reconstruction of an input image as the output image with certain pixels of the image highlighted or labelled to be of a particular class or to have a particular property. In Medical Imaging, this is quite often required in the highlighting of infected regions or affected areas in cells or scans. Before getting into the approaches in Digital Image Processing and Deep Learning to solve such problems, let us have a look at some typical segmentated images.
 
 \begin{center}
-  \url{https://www.ctan.org/pkg/booktabs}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=105mm,height=65mm]{images/segs.png}}
+        \caption{Some Segmented images}
+        \label{fig:1}
+    \end{figure}
 \end{center}
 
-
-\subsection{Figures}
-\lipsum[10] 
-See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
-\lipsum[11] 
-
-\begin{figure}
-  \centering
-  \fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-  \caption{Sample figure caption.}
-  \label{fig:fig1}
-\end{figure}
-
-\subsection{Tables}
-\lipsum[12]
-See awesome Table~\ref{tab:table}.
-
-\begin{table}
- \caption{Sample table title}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    \multicolumn{2}{c}{Part}                   \\
-    \cmidrule(r){1-2}
-    Name     & Description     & Size ($\mu$m) \\
-    \midrule
-    Dendrite & Input terminal  & $\sim$100     \\
-    Axon     & Output terminal & $\sim$10      \\
-    Soma     & Cell body       & up to $10^6$  \\
-    \bottomrule
-  \end{tabular}
-  \label{tab:table}
-\end{table}
-
-\subsection{Lists}
-\begin{itemize}
-\item Lorem ipsum dolor sit amet
-\item consectetur adipiscing elit. 
-\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-\end{itemize}
-
+Segmentation is p
+\cite{kour2014real}
 
 \bibliographystyle{unsrt}  
+
 \bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
 %%% and comment out the ``thebibliography'' section.
 
