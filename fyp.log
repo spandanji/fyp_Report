@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.25)  1 MAY 2020 14:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.25)  2 MAY 2020 02:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,18 +640,18 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
 \openout4 = `fyp.toc'.
 
  [2]
-<images/segs.png, id=84, 747.54282pt x 432.11438pt>
+<images/segs.png, id=109, 747.54282pt x 432.11438pt>
 File: images/segs.png Graphic file (type png)
 <use images/segs.png>
 Package pdftex.def Info: images/segs.png  used on input line 58.
 (pdftex.def)             Requested size: 298.74948pt x 184.9418pt.
  [3 <./images/segs.png>]
-<images/metastases.png, id=93, 642.4pt x 286.06876pt>
+<images/metastases.png, id=118, 642.4pt x 286.06876pt>
 File: images/metastases.png Graphic file (type png)
 <use images/metastases.png>
 Package pdftex.def Info: images/metastases.png  used on input line 75.
 (pdftex.def)             Requested size: 298.76192pt x 184.94289pt.
-<images/gradcam.png, id=95, 642.4pt x 459.7175pt>
+<images/gradcam.png, id=120, 642.4pt x 459.7175pt>
 File: images/gradcam.png Graphic file (type png)
 <use images/gradcam.png>
 Package pdftex.def Info: images/gradcam.png  used on input line 83.
@@ -660,58 +660,88 @@ Package pdftex.def Info: images/gradcam.png  used on input line 83.
 Underfull \vbox (badness 1394) has occurred while \output is active []
 
  [4 <./images/metastases.png> <./images/gradcam.png>] [5]
-<images/mri.jpeg, id=116, 1284.8pt x 734.745pt>
+<images/mri.jpeg, id=141, 1284.8pt x 734.745pt>
 File: images/mri.jpeg Graphic file (type jpg)
 <use images/mri.jpeg>
 Package pdftex.def Info: images/mri.jpeg  used on input line 107.
 (pdftex.def)             Requested size: 298.75212pt x 184.94145pt.
  [6 <./images/mri.jpeg>] [7]
-<images/k-means.png, id=140, 706.64pt x 649.42625pt>
+<images/k-means.png, id=166, 706.64pt x 649.42625pt>
 File: images/k-means.png Graphic file (type png)
 <use images/k-means.png>
 Package pdftex.def Info: images/k-means.png  used on input line 128.
 (pdftex.def)             Requested size: 298.74918pt x 270.29962pt.
  [8 <./images/k-means.png>]
-<images/unet.png, id=151, 791.95876pt x 518.93875pt>
+<images/encdec.png, id=176, 831.105pt x 417.56pt>
+File: images/encdec.png Graphic file (type png)
+<use images/encdec.png>
+Package pdftex.def Info: images/encdec.png  used on input line 144.
+(pdftex.def)             Requested size: 384.11372pt x 241.85364pt.
+ [9 <./images/encdec.png>]
+<images/fcn.png, id=185, 1386.17876pt x 590.205pt>
+File: images/fcn.png Graphic file (type png)
+<use images/fcn.png>
+Package pdftex.def Info: images/fcn.png  used on input line 156.
+(pdftex.def)             Requested size: 497.9241pt x 270.29982pt.
+ [10 <./images/fcn.png>]
+<images/unet.png, id=193, 791.95876pt x 518.93875pt>
 File: images/unet.png Graphic file (type png)
 <use images/unet.png>
-Package pdftex.def Info: images/unet.png  used on input line 143.
+Package pdftex.def Info: images/unet.png  used on input line 170.
 (pdftex.def)             Requested size: 384.11162pt x 327.22612pt.
- [9 <./images/unet.png>]
+
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 157.
+(amsmath)                 on input line 184.
 
-<images/segmapunet.png, id=163, 803.0pt x 463.7325pt>
+[11 <./images/unet.png>]
+<images/segmapunet.png, id=204, 803.0pt x 463.7325pt>
 File: images/segmapunet.png Graphic file (type png)
 <use images/segmapunet.png>
-Package pdftex.def Info: images/segmapunet.png  used on input line 172.
+Package pdftex.def Info: images/segmapunet.png  used on input line 199.
 (pdftex.def)             Requested size: 270.30852pt x 213.39737pt.
-[10 <./images/segmapunet.png>] [11] (./fyp.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
+ [12 <./images/segmapunet.png>]
+<images/gradcampap.png, id=221, 849.1725pt x 320.19624pt>
+File: images/gradcampap.png Graphic file (type png)
+<use images/gradcampap.png>
+Package pdftex.def Info: images/gradcampap.png  used on input line 226.
+(pdftex.def)             Requested size: 497.9236pt x 213.39685pt.
+ [13 <./images/gradcampap.png>]
+<images/gradcamnet.png, id=231, 875.27pt x 301.125pt>
+File: images/gradcamnet.png Graphic file (type png)
+<use images/gradcamnet.png>
+Package pdftex.def Info: images/gradcamnet.png  used on input line 236.
+(pdftex.def)             Requested size: 497.92078pt x 241.85603pt.
+ [14 <./images/gradcamnet.png>]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 249.
+
+[15] (./fyp.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 262.
+ [16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 262.
  (./fyp.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 262.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 262.
 Package rerunfilecheck Info: File `fyp.out' has not changed.
-(rerunfilecheck)             Checksum: 6F59CFE154D3A3CBC7F2A2C08CB9B9AC;809.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
+(rerunfilecheck)             Checksum: 8781B7AC0320C604CEAFE9CD886DC3FF;1247.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 262.
  ) 
 Here is how much of TeX's memory you used:
- 18920 strings out of 492167
- 333726 string characters out of 6131558
+ 18977 strings out of 492167
+ 334674 string characters out of 6131558
  602159 words of memory out of 5000000
- 22890 multiletter control sequences out of 15000+600000
- 583316 words of font info for 178 fonts, out of 8000000 for 9000
+ 22925 multiletter control sequences out of 15000+600000
+ 583541 words of font info for 180 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,11n,67p,2083b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fyp.pdf (12 pages, 1986556 bytes).
+Output written on fyp.pdf (16 pages, 2804696 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
- 25220 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 315 PDF objects out of 1000 (max. 8388607)
+ 265 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 25280 words of extra memory for PDF output out of 29859 (max. 10000000)
 

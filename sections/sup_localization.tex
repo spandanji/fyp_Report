@@ -1,0 +1,30 @@
+\section{Weakly-supervised Localization}\label{sec:sup_localization}
+In this section, we compare the localization capability of \gcam{} with previous approaches in the context of image classification.
+
+Following ILSVRC evaluation, we report both top-1 and top-5 localization \rp{error} on ILSVRC-15 validation set in \reftab{table:locres}. 
+
+As can be seen from the table, \gcam{} localizations are significantly better than competing approaches such as c-MWP~\cite{zhang2016top} and Backprop~\cite{simonyan_arxiv13}. We also find that CAM slighly outperforms \gcam{}, but it requires an architectural change, and hence re-training.
+
+\vspace{-10pt}
+\begin{table}[h!]
+\centering
+    \resizebox{0.98\columnwidth}{!}{
+        \begin{tabular}{c c c c c}\toprule
+            \textbf{Method} & \textbf{Top-1 loc error} & \textbf{Top-5 loc error} & \textbf{Top-1 cls error} & \textbf{Top-5 cls error} \\
+            \midrule
+
+            Backprop on VGG-16~\cite{simonyan_arxiv13}  & 61.12 & 51.46 & 30.64 & 11.03        \\
+            c-MWP on VGG-16~\cite{zhang2016top}         & 70.92 & 63.04 & 30.64 & 11.03        \\
+            \gcam{} on VGG-16                           & 57.80 & 48.03 & 30.64 & 11.03        \\
+            \midrule
+            VGG-16-GAP~\cite{zhou_cvpr16}               & 57.20 & 45.14 & 33.40 & 12.20        \\
+            \bottomrule
+        \end{tabular}
+    }
+    \vspace{-6pt}
+    \caption{Classification and Localization results on ILSVRC-15 val.
+    \gcam{} outperforms~\cite{simonyan_arxiv13} and c-MWP \cite{zhang2016top} by a significant margin.} 
+    \label{table:locres}
+    \vspace{-10pt}
+\end{table}
+

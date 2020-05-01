@@ -1,0 +1,17 @@
+\vspace{-10pt}
+\section{More details of Pointing Game}\label{sec:sup_pointing}
+
+In \cite{zhang2016top}, the pointing game was setup to evaluate the discriminativeness of different attention maps for localizing ground-truth categories. In a sense, this evaluates the precision of a visualization, \ie how often does the attention map intersect the segmentation map of the ground-truth category.
+This does not evaluate how often the visualization technique produces maps which do not correspond to the category of interest. 
+
+Hence we propose a modification to the pointing game to evaluate visualizations of the top-5 predicted category.
+In this case the visualizations are given an additional option to reject any of the top-5 predictions from the CNN classifiers.
+For each of the two visualizations, \gcam{} and c-MWP, we choose a threshold on the max value of the visualization, that can be used to determine if the category being visualized exists in the image.
+
+We compute the maps for the top-5 categories, and based on the maximum value in the map, we try to classify if the map is of the GT label or a category that is absent in the image.
+As mentioned in Section 4.2 of the main paper, we find that our approach \gcam{} outperforms c-MWP by a significant margin (70.58\% vs 60.30\% on VGG-16).
+
+
+
+
+

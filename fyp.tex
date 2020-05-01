@@ -136,7 +136,34 @@ Dhanachandra et.al. \cite{dhanachandra2015image} used K-means and sustractive cl
 \subsection{Deep Learning Methods}
 While classical machine learning algorithms have been in several cases adequate for the task at hand, when it comes to segmenting compicated patterns, RGB images etc, Deep Learning far outclasses the methods discussed so far and defines the benchmarks for quality in the current world of technology. There are several methods out there. Let us review and discuss the most prominent ones.
 
+\subsubsection{Conv Encoder-Decoder Architecture}
+Long et.al. \cite{long2015fully} started the trend of using fully convolutional models for semantic segementation. This consisted of a convolutional encoder and a decoder.
+
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=135mm,height=85mm]{images/encdec.png}}
+        \caption{An encoder decoder based architecture where a constricting encoder reduces the image to a latent space $z$ and a decoder extracts a segmentation map from this feature space. The feature space effectively contains the data of all pattens and characteristics of the image. Effective construction of this is the key to such models}
+        \label{fig:8}
+    \end{figure}
+\end{center}
+Convolutional networks are powerful visual models that yield  hierarchies  of  features. The authors demonstrated that  convolutional networks by themselves, trained end-to-end, pixels-to-pixels,  exceeded  the  state-of-the-art  in  semantic  segmentation at that time.Their key insight was  to  build  “fully  convolutional” networks  that  take  input  of  arbitrary  size  and  produce correspondingly sized  output  with  efficient  inference  andlearning.  They defined and detailed the space of fully convolutional networks, explained their application to spatially denseprediction tasks, and drew connections to prior models. 
+\newpage
+Their models also combined data from high and low resolution space as seen in \ref{fig:9} and this enabled them to prevent to learn a multi-resolution analysis. Such an analysis without deep learning would have required complex transformations as simply taking a Discrete Wavelet Transform might not be suitable for the task given at hand. 
+
+
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=175mm,height=95mm]{images/fcn.png}}
+        \caption{"Multi resolution encoding in the feature space"}
+        \label{fig:9}
+    \end{figure}
+\end{center}
+
+ This simple model may be trained in 2 different ways. It could be trained end-to-end where the where all the layers are trainable at once. Alternatively, such a model could be trained in a stacked manner where each layer in depth is added and trained with the corresponding symmetric decoder and we iteratively add one layer after another till we reach our desired depth. 
+\newpage 
+
 \subsubsection{U-Nets}
+
 U-net has been the go-to choice for semantic segmentation for medical images. Ronneberger et.al. \cite{ronneberger2015u} proposed this structure in 2015 with primary focus on medical image segmentation.Before reviewing the architecture, let us have a look at the general structure of the model in Fig. \ref{fig:6}. The U-Structure is a result of the symmetric contraction and expansion. As we propagate into the depth of any CNN, our field of vision on the input image increases but we may lose localization features and here comes the significance of passing the features from lower depth layers while upsampling for the output. At corner points or boundary regions, we may mirror parts of the input image so as to pass a consistent context. 
 \begin{center}
     \begin{figure}[!h!t!b]
@@ -181,6 +208,63 @@ As entropy is a quantification of the uncertainty in a system, the approach take
     \label{weightmap}
     w(\vec{x}) = w_c(\vec{x}) + w_0 \cdot \exp\left( - \frac{(d_1(\vec{x}) + d_2(\vec{x}))^2}{2\sigma^2}\right ) 
 \end{equation}
+
+ where $w_c:\Omega \rightarrow \mathbb{R}$ is the weight map to balance the class frequencies, $d_1:\Omega \rightarrow \mathbb{R}$ denotes the distance to the border of the nearest cell and $d_2:\Omega \rightarrow \mathbb{R}$ the distance to the border of the second nearest cell. In their experiments they set $w_0 = 10$ and $ \sigma \approx 5 $ pixels.
+
+ The weights of the architecture overall, are initialized as sampled from Gaussian Distributions with a standard deviation of $\sqrt{2/N}$, where $N$ denotes the number of incoming nodes of one neuron.
+
+ \textbf{The $w_c$ concept is crucial as normally medical image datasets are unbalanced as healthy samples are usually greater than unhealthy samples. We must ensure that we weigh the unhealthy samples by a higher weight so as to not introduce a bias into the model towards healthy patients.}
+
+ \subsubsection{Grad-CAM : Visual Explanations from Deep Networks via Gradient-based Localization}
+
+ Selvaraju et.al. \cite{selvaraju2017grad} proposed a gradient based method that looks for patterns in the input image that force the activation of an output. These are known as Class Activation Maps. If we just have a dataset labelled healthy and unhealthy and we can get the Class Activation Map (CAM) of the data then we can get the input patterns that firce the activation of the unhealthy class and hence we can effectively "segment" the affected area.
+
+ For a better understanding of the concept involved, we can refer to Fig \ref{fig:10}
+
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=175mm,height=75mm]{images/gradcampap.png}}
+        \caption{Class Activation Maps achieved through this paper. Note the heatmap coressponds only to those regions which cause the class to be activated. Especially the ResNet GradCAM (Extreme Right)} 
+        \label{fig:10}
+    \end{figure}
+\end{center}
+
+This concept is generalizable to several tasks even other than image processing. However, since we are discussing everything with respect to localizing patterns causing the activation of the respective classes in medical images, our prime area of interest shall remain Computer Vision. that is the top most branch of Fig. \ref{fig:11}.GradCAMs rely on Global Average Pooling and their relationship and dependence is a matter of much interest as will be discussed later.
+\newpage
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=175mm,height=85mm]{images/gradcamnet.png}} 
+        \caption{The proposed methodology of achieving GradCAM}
+        \label{fig:11}
+    \end{figure}
+\end{center}
+
+A decent benchmark for performance evaluation would be the region of interest for a human to identify the said class from the image and the respective difference in the probablility distributions formed by evaluating the most probable region of attention paid by by the human as against the distribution suggested by the heatmap of the model.
+
+It is noteworthy that this work using GradCAMs and Guided GradCAMs is revolutionary in the field of Computer Vision as in addition to the functions discussed these also refer to the regions in the input image the output is most vulnerable to thereby indicating the region of the input which, if attacked by certain amount of noise would cause misclassification. This inspired Protective Networks and Attacks on Vision models leading to a whole new branch of research.
+
+\newpage
+\section{Proposed Methodology}
+
+\subsubsection{The Problem Statement}
+The problem statement taken under consideration is the kaggle challenge hosted by KAGGLE named : \textbf{"Histopathologic Cancer Detection"} which aims to \textbf{ Identify metastatic tissue in histopathologic scans of lymph node sections.} 
+\subsubsection{Dataset}
+
+The dataset is as follows :
+
+\textbf{220k training images and 57k evaluation images}. The dataset is a subset of the PCam dataset and the only difference between these two is that all duplicate images have been removed. The PCam dataset is derived from the Camelyon16 Challenge dataset which contains 400 H\&E stained whole slide images of sentinel lymph node sections that were acquired and digitized at 2 different centers using a 40x objective. The PCam's dataset including this one uses 10x undersampling to increase the field of view, which gives the resultant pixel resolution of 2.43 microns.
+
+According to the data description, there is a 50/50 balance between positive and negative examples in the training and test splits. However, the training distribution seems to be 60/40 negatives/positives)(. A positive label means that there is at least one pixel of tumor tissue in the center region (32 x 32px) of the image. Tumor tissue in the outer region of the patch does not influence the label. This means that a negatively labeled image could contain metastases in the outer region. Thus, it would be a good idea to crop the images to the center region.
+
+
+This dataset is a combination of two independent datasets collected in Radboud University Medical Center (Nijmegen, the Netherlands), and the University Medical Center Utrecht (Utrecht, the Netherlands). The slides are produced by routine clinical practices and a trained pathologist would examine similar images for identifying metastases. However, some relevant information about the surroundings might be left out with these small-sized image samples.
+Is it valid? Does it reflect our expectations?
+
+According to the data description, the dataset has been stripped of duplicates. However, this has not been confirmed by testing.
+
+    For the entire dataset, when the slide-level label was unclear during the inspection of the H\&E-stained slide, an additional WSI with a consecutive tissue section, immunohistochemically stained for cytokeratin, was used to confirm the classification.
+
+
 \newpage
 \section{Bibliography}
 \bibliographystyle{unsrt}  

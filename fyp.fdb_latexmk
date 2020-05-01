@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex fyp"] 1588322246 "fyp.aux" "fyp.bbl" "fyp" 1588322247
+["bibtex fyp"] 1588367655 "fyp.aux" "fyp.bbl" "fyp" 1588367656
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1572595918 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "fyp.aux" 1588322247 5758 5cad3d85e963ebd221e2db044e6e3828 "pdflatex"
-  "references.bib" 1588318774 4140 c6d13901af1249725c45d7b45b76f0ad ""
+  "fyp.aux" 1588367656 8434 8c8a97cca6a9fe5e39203520568f4779 "pdflatex"
+  "references.bib" 1588361176 4816 409d64e4fc128c0e7b5e65a9409a8c65 ""
   (generated)
-  "fyp.blg"
   "fyp.bbl"
-["pdflatex"] 1588322246 "fyp.tex" "fyp.pdf" "fyp" 1588322247
-  "/dev/null" 1588306376 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "fyp.blg"
+["pdflatex"] 1588367655 "fyp.tex" "fyp.pdf" "fyp" 1588367656
+  "/dev/null" 1588335087 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1572595918 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1572595918 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1572595918 3332 103109f5612ad95229751940c61aada0 ""
@@ -126,12 +126,16 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1587756603 345928 ec6b9b3d22e0c6e6dafe4195bbebcba7 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1587756602 8044939 8f8afcd6331360f51bdfb078ba4df51e ""
   "arxiv.sty" 1588271272 7501 247772e4b191f1bdf401107188973932 ""
-  "fyp.aux" 1588322247 5758 5cad3d85e963ebd221e2db044e6e3828 "pdflatex"
-  "fyp.bbl" 1588322246 3437 8cd26e98c6a3cf6ffe8ecc3584e163e8 "bibtex fyp"
-  "fyp.out" 1588322247 809 6f59cfe154d3a3cbc7f2a2c08cb9b9ac "pdflatex"
-  "fyp.tex" 1588322241 27624 243e4e823e8854a73540e00b72794c0e ""
-  "fyp.toc" 1588322247 1035 d95b18be7bcba5984d60d18e478778f2 "pdflatex"
+  "fyp.aux" 1588367656 8434 8c8a97cca6a9fe5e39203520568f4779 "pdflatex"
+  "fyp.bbl" 1588367655 4049 0b69686033d6d39bb1b4fa9bd493ce7f "bibtex fyp"
+  "fyp.out" 1588367656 1247 8781b7ac0320c604ceafe9cd886dc3ff "pdflatex"
+  "fyp.tex" 1588367653 33761 e32c7be0094536e270f839cff1cb7669 ""
+  "fyp.toc" 1588367656 1567 18242db25631ca2dbba64a22bfc1c3d4 "pdflatex"
+  "images/encdec.png" 1588336491 120714 26e435ca28056d746b88d6c9f37cd625 ""
+  "images/fcn.png" 1588337248 135542 4df14b77f37d0022ab781983109cf61e ""
   "images/gradcam.png" 1588263434 365798 476c4ccacbb6339bc6c6253ac2244af0 ""
+  "images/gradcamnet.png" 1588362718 148418 f6825745ac6a6651e4c351a01aca1e92 ""
+  "images/gradcampap.png" 1588362322 300122 cee7d865575ef287bf6b68d84f7d389f ""
   "images/k-means.png" 1588315935 249002 bfb27f55a04e9037932ca7fd0f17a598 ""
   "images/metastases.png" 1588263434 329840 f67849b7d04a2b31124cad17dfddf416 ""
   "images/mri.jpeg" 1588310035 88392 3f66386bf64f6f5c71ef90ae4d4c8a01 ""
@@ -139,8 +143,8 @@
   "images/segs.png" 1588225761 335645 8b6a16235409f7add686dd394923443d ""
   "images/unet.png" 1588318523 96395 0cee2573a27561c1ede4c9d4f2a8ad5f ""
   (generated)
-  "fyp.out"
+  "fyp.aux"
+  "fyp.log"
   "fyp.toc"
   "fyp.pdf"
-  "fyp.log"
-  "fyp.aux"
+  "fyp.out"

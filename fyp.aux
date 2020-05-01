@@ -46,16 +46,31 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}K Means Clustering Based Methods}{8}{subsubsection.2.2.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Segmentation using k means clustering}}{8}{figure.5}\protected@file@percent }
 \newlabel{fig:5}{{5}{8}{Segmentation using k means clustering}{figure.5}{}}
-\citation{ronneberger2015u}
+\citation{long2015fully}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Deep Learning Methods}{9}{subsection.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}U-Nets}{9}{subsubsection.2.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces U-net architecture example for 32x32 pixels in the lowest resolution. Each bluebox corresponds to a multi-channel feature map. The number of channels is denotedon top of the box. The x-y-size is provided at the lower left edge of the box. Whiteboxes represent copied feature maps. The arrows denote the different operations.}}{9}{figure.6}\protected@file@percent }
-\newlabel{fig:6}{{6}{9}{U-net architecture example for 32x32 pixels in the lowest resolution. Each bluebox corresponds to a multi-channel feature map. The number of channels is denotedon top of the box. The x-y-size is provided at the lower left edge of the box. Whiteboxes represent copied feature maps. The arrows denote the different operations}{figure.6}{}}
-\newlabel{softmax}{{1}{10}{U-Nets}{equation.2.1}{}}
-\newlabel{crossentropy}{{2}{10}{U-Nets}{equation.2.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces A segmentation map using UNET. Note that each pixel in the given segmentation map is one of 3 classes of the 3 different colours}}{10}{figure.7}\protected@file@percent }
-\newlabel{fig:7}{{7}{10}{A segmentation map using UNET. Note that each pixel in the given segmentation map is one of 3 classes of the 3 different colours}{figure.7}{}}
-\newlabel{weightmap}{{3}{11}{U-Nets}{equation.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Conv Encoder-Decoder Architecture}{9}{subsubsection.2.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces An encoder decoder based architecture where a constricting encoder reduces the image to a latent space $z$ and a decoder extracts a segmentation map from this feature space. The feature space effectively contains the data of all pattens and characteristics of the image. Effective construction of this is the key to such models}}{9}{figure.6}\protected@file@percent }
+\newlabel{fig:8}{{6}{9}{An encoder decoder based architecture where a constricting encoder reduces the image to a latent space $z$ and a decoder extracts a segmentation map from this feature space. The feature space effectively contains the data of all pattens and characteristics of the image. Effective construction of this is the key to such models}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces "Multi resolution encoding in the feature space"}}{10}{figure.7}\protected@file@percent }
+\newlabel{fig:9}{{7}{10}{"Multi resolution encoding in the feature space"}{figure.7}{}}
+\citation{ronneberger2015u}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}U-Nets}{11}{subsubsection.2.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces U-net architecture example for 32x32 pixels in the lowest resolution. Each bluebox corresponds to a multi-channel feature map. The number of channels is denotedon top of the box. The x-y-size is provided at the lower left edge of the box. Whiteboxes represent copied feature maps. The arrows denote the different operations.}}{11}{figure.8}\protected@file@percent }
+\newlabel{fig:6}{{8}{11}{U-net architecture example for 32x32 pixels in the lowest resolution. Each bluebox corresponds to a multi-channel feature map. The number of channels is denotedon top of the box. The x-y-size is provided at the lower left edge of the box. Whiteboxes represent copied feature maps. The arrows denote the different operations}{figure.8}{}}
+\newlabel{softmax}{{1}{12}{U-Nets}{equation.2.1}{}}
+\newlabel{crossentropy}{{2}{12}{U-Nets}{equation.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces A segmentation map using UNET. Note that each pixel in the given segmentation map is one of 3 classes of the 3 different colours}}{12}{figure.9}\protected@file@percent }
+\newlabel{fig:7}{{9}{12}{A segmentation map using UNET. Note that each pixel in the given segmentation map is one of 3 classes of the 3 different colours}{figure.9}{}}
+\newlabel{weightmap}{{3}{12}{U-Nets}{equation.2.3}{}}
+\citation{selvaraju2017grad}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Grad-CAM : Visual Explanations from Deep Networks via Gradient-based Localization}{13}{subsubsection.2.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Class Activation Maps achieved through this paper. Note the heatmap coressponds only to those regions which cause the class to be activated. Especially the ResNet GradCAM (Extreme Right)}}{13}{figure.10}\protected@file@percent }
+\newlabel{fig:10}{{10}{13}{Class Activation Maps achieved through this paper. Note the heatmap coressponds only to those regions which cause the class to be activated. Especially the ResNet GradCAM (Extreme Right)}{figure.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces The proposed methodology of achieving GradCAM}}{14}{figure.11}\protected@file@percent }
+\newlabel{fig:11}{{11}{14}{The proposed methodology of achieving GradCAM}{figure.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Proposed Methodology}{15}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.0.1}The Problem Statement}{15}{subsubsection.3.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.0.2}Dataset}{15}{subsubsection.3.0.2}\protected@file@percent }
 \bibstyle{unsrt}
 \bibdata{references}
 \bibcite{kour2014real}{1}
@@ -69,5 +84,7 @@
 \bibcite{havaei2014efficient}{9}
 \bibcite{ng2006medical}{10}
 \bibcite{dhanachandra2015image}{11}
-\bibcite{ronneberger2015u}{12}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Bibliography}{12}{section.3}\protected@file@percent }
+\bibcite{long2015fully}{12}
+\bibcite{ronneberger2015u}{13}
+\bibcite{selvaraju2017grad}{14}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Bibliography}{16}{section.4}\protected@file@percent }

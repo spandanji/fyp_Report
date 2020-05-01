@@ -1,0 +1,193 @@
+\vspace{-15pt}
+\section{Related Work}
+
+Our work draws on recent work in CNN visualizations, model trust assessment, and weakly-supervised localization.
+
+% Most relevant to this our is \cite{lime:hcml16}, which helps motivate our study of user trust and identifies a notion of interpretability similar to the one found here.
+% In the same vein of research, we find a new way to interpret models by combining weak localization and deep network visualization then evaluate this visualization using notions of trust from \cite{lime:hcml16}.
+% To put our visualization in context we describe previous visualization and localization approaches here.
+
+\noindent \para{Visualizing CNNs}
+A number of previous works~\cite{simonyan_arxiv13,springenberg_arxiv14,zeiler_eccv14,Gan_2015_CVPR} have visualized CNN predictions by highlighting `important' pixels (\ie change in intensities of these pixels have the most impact on the prediction score).
+%An active vein of research focuses on computing support for a given network unit in an image by visualizing pixels that need to be changed the least to affect class scores the most~\cite{simonyan_arxiv13,springenberg_arxiv14,zeiler_eccv14}.
+Specifically, Simonyan \etal~\cite{simonyan_arxiv13} visualize partial derivatives of predicted class scores \wrt pixel intensities, while \gb{}~\cite{springenberg_arxiv14} and \dec{}~\cite{zeiler_eccv14} make modifications to `raw' gradients that result in qualitative improvements.
+\mac{These approaches are compared in ~\cite{mahendran16eccv}.}
+Despite producing fine-grained visualizations, these methods are not class-discriminative. Visualizations with respect to different classes are nearly identical (see Figures \hyperlink{page.2}{1b} and \hyperlink{page.2}{1h}).
+%One problem with these existing visualizations is that they are not class-discriminative. As shown in \reffig{fig:teaser_gb_cat} and \reffig{fig:teaser_gb_dog}, the visualizations for the two different classes in the image are largely imperceptible. % shows a \gb{} visualization for the `cat' class, yet both cat and dog regions are highlighted.
+%These methods are high-resolution but lack the ability to localize the class-discriminative regions.
+%Hence these methods are \whatcent{} and not \wherecent{}.
+
+Other visualization methods synthesize images to maximally activate a network unit~\cite{simonyan_arxiv13,erhan2009visualizing} or invert a latent representation~\cite{mahendran2016visualizing,dosovitskiy_cvpr16}.
+%Although these can be high-resolution and class-discriminative. they are not specific to an input image and thus can't be used to explain a model's prediction.
+Although these can be high-resolution and class-discriminative,
+they are not specific
+to a single input image and visualize a model overall.
+%a specific prediction -- \ie, these visualizations are not specific to any input image.
+%can only be able to interpret the model overall, but not a specific prediction made by the model. Hence these visualizations are not specific to the input image. %they are not specific to an input image and thus can't be used to explain a model's prediction.
+
+
+\noindent\para{Assessing Model Trust}
+Motivated by notions of interpretability~\cite{lipton_arxiv16} and assessing trust in models~\cite{lime_sigkdd16}, we evaluate \gcam{} visualizations in a manner similar to ~\cite{lime_sigkdd16} via human studies to show that they can be important tools for users to evaluate and place trust in automated systems.
+
+\noindent\para{Aligning Gradient-based Importances}
+ Selvaraju \etal \cite{niwt} proposed an approach that uses the gradient-based neuron importances introduced in our work, and maps it to class-specific domain knowledge from humans in order to learn classifiers for novel classes. In future work, Selvaraju \etal \cite{hint} proposed an approach to align gradient-based importances to human attention maps in order to ground vision and language models. 
+
+%Although these can be \emph{what} as well as \wherecent{}, they are not specific to an input image and thus can't be used to explain a model's prediction.
+    % A related idea performs optimization in the image space starting from an existing image and maximizing the norm of a layer of activations, thus emphasizing salient features in the entire image at various levels of abstraction (cite DeepDream).
+    % This objective only takes into account groups of neurons, so there is no recognizable concept to be localized.
+
+% \ad{
+%     Gradient-based visualizations can be used to localize objects after some preprocessing~\cite{simonyan_arxiv13}, but as mentioned before, the gradient signal is usually noisy
+% }
+
+
+% A related idea performs optimization in the image space starting from an existing image and maximizing the norm of one layer of activations, thus emphasizing salient features in the entire image at various levels of abstraction~\cite{mahendran_arxiv15}.
+% This objective only takes into account groups of neurons, so there is no recognizable concept to be localized.
+% Other methods which perform optimization in the image space minimize the error of reconstructions from information contained in latent features~\cite{mahendran_arxiv15, dosovitskiy_cvpr16}.
+
+% First we review \whatcent{} visualizations that are not \wherecent{}.
+% Most relevant to our method are \gb~\cite{springenberg_arxiv14} and \dec~\cite{zeiler_eccv14}, which rely on partial derivatives of activations of output neurons (say probability of a particular class \wrt the input pixels.
+%which are thought of as computing gradients, but bias the gradient computation toward recognizability.
+% These methods are not \wherecent{} because they can not discriminate well between different output classes (say the cat and dog shown in \figref{fig:teaser_gb} as noted in \cite{springenberg_arxiv14}.
+%fully-connected neurons, including class output neurons (\figref{fig:teaser_gb}) as noted in \cite{springenberg_arxiv14}.
+% A related idea performs optimization in the image space starting from an existing image and maximizing the norm of one layer of activations, thus emphasizing salient features in the entire image at various levels of abstraction~\cite{mahendran_arxiv15}.
+% This objective only takes into account groups of neurons, so there is no recognizable concept to be localized.
+%yes (1) image discriminative,
+%yes (2) image specific, but
+%no (3) class discriminative (it focuses on an entire feature vector).
+% Other methods which perform optimization in the image space minimize the error of reconstructions from only information contained in latent features~\cite{mahendran_arxiv15, dosovitskiy_cvpr16}.
+%(or even features like HOG and
+%SIFT)~\cite{vondrick_iccv13, mahendran_arxiv15, dosovitskiy_cvpr16}.
+% Again, there is no recognizable concept to localize, so this is not \wherecent{}.
+%yes (1) image discriminative
+%yes (2) image specific,
+%no (3) class discriminative
+
+% \rp{I think the following para like Dhruv says, is very confusing. I think we need to remove it.}
+% Alternative visualizations are \wherecent{}, but not \whatcent{}.
+% Though similar to \dec{} and \gb{}, visualization of gradients of output neurons with respect to the input image are quite noisy and do not detail local features.
+% However, they can be used to localize objects after some postprocessing~\cite{simonyan_arxiv13}.
+%no (1) image discriminative,
+%yes (2) image specific
+%yes (3) class discriminative
+% Localization methods like those from the next section can be -- and sometimes are -- thought of as visualizations~\cite{simonyan_arxiv13}, even though they only identify coarse blobs related to a query concept.
+%no (1) image
+%yes (2) image specific
+%yes (3) class discriminative
+
+% Finally, visualizations that directly maximize neuron activations\rp{we need citations here} can be both \whatcent{} and \wherecent{}.
+% This seems exciting, however these visualizations lack a critical feature common to our work and most of the previously mentioned work.
+% They are not specific to any input image, so it is impossible to communicate anything about what a model predicted from such an image~\cite{yosinski_icml15}.
+% And those that are image-specific \cite{mahendran_arxiv15}, are not label-specific i.e. they can only visualize a feature vector, not a classification decision.
+% Different from \cite{mahendran_arxiv15}, our approach can visualize a classification decision, in addition to visualizing a feature vector.
+% \rama{This does not seem to be true, Mahendran and Vedaldi's work takes the feature produced for a particular image, and then
+% finds an image that produces the same representation. Also, mahendran and vedaldi does not maximize
+% neuron activations. I think the point is that these methods cannot visualize a classification decision, they
+% can only visualize a feature vector. Thus, these are not label specific visualizations.}\rp{agreed. But we mention "most". In addition we could also mention something like this.
+
+% Be careful with this line. These may become image specific if the
+% intialization changes, though I don't think anyone has done that.
+%yes (1) image discriminative and
+%no (2) image specific
+%yes (3) class discriminative, but not
+
+% point about derivatives and vis
+%At this point it is interesting to note that derivatives in CNNs, and thus
+%the visualizations of this section, are computed via deconvolution and unpooling.
+%These operations have been essential to some CNN based segmentation approaches~\cite{long2015fcn}.
+%\mac{Does this need to be described in detail?... I really like that figure and I'm inclined to just leave a pointer to it :)}
+
+% opt vs grad
+%The most popular type of CNN visualization aims to understand CNNs via
+%an optimization in the image space.
+%....
+%A parallel line of work involves highlighting regions of the input image that
+%activate a certain neuron by computing the gradient of the neuron with
+%respect to the image and directly visualizing that gradient.
+
+% old distinctions
+%It is not only useful to categorize CNN visualizations across the (1) \what and (2) \where,
+%dimensions, but also (3) an image specific dimension.
+%The first two distinguish between visualizations that emphasize specific features
+%or localize objects \mac{check this}, as dicussed in the intro, while the third distinguishes
+%between visualizations that condition on specific images or only ask about
+%learned parameters.
+%To our knowledge, no work has been done which is \emph{what-centric}, \emph{where-centric},
+%and image specific, though we show there are unique
+%and interesting benefits when all three are combined.
+%\mac{Dhruv suggested we cite relevant visualizations here, but we cite them all
+%below. Would it be too redundant?}
+
+% We show in \secref{sec:sections/human_evaluation} that these visualization methods are not specific enough to explain the predictions made by a model.\rp{Is this okay? Need to fix secref though}
+%Unlike our approach, all of these visualization methods are not
+%specific enough to explain predictions made by a model.
+
+
+\noindent \para{Weakly-supervised localization}
+%Most relevant to our work is weakly supervised localization in the context of CNNs, where the task is to localize objects in images using only whole image class labels.
+Another relevant line of work is weakly-supervised localization in the context of CNNs, where the task is to localize objects in images using holistic image class labels only~\cite{cinbis2016weakly,oquab_cvpr14,oquab_cvpr15,zhou_cvpr16}.
+%One way to accomplish this is by leveraging internal
+%representations of models which are naturally spatial in nature (\eg, feature maps in CNNs).
+%A second way to accomplish this is by applying a classifier to different
+%regions of an image.
+%Our approach leverages the first method, so we review these related works first.
+
+% Cinbis~\etal~\cite{cinbis_tpami15} combine multiple-instance learning with CNN features for object localization.
+
+% TODO: talk about localization as just an intermediate stage to getting good visualization
+
+% However, contrary to Zhou~\etal~\cite{zhou_cvpr16} who highlight that fully-connected layers in CNNs lead to loss of discriminative localization, our gradient-based model-agnostic approach has the remarkable ability to perform object localization without any architectural changes to the network or additional supervisory signal.
+
+% conv -> pooling -> softmax
+Most relevant to our approach is the Class Activation Mapping (CAM) approach to localization~\cite{zhou_cvpr16}.
+This approach modifies image classification CNN architectures replacing fully-connected layers with convolutional layers and global average pooling~\cite{lin2013network}, thus achieving class-specific feature maps. %\rp{(not sure if we should say class-discriminative here)} feature maps.
+Others have investigated similar methods using global max pooling~\cite{oquab_cvpr15} and log-sum-exp pooling~\cite{pinheiro2015image}.
+%CAM has also been extended via iterative refinement of class maps~\cite{visconrefine}.
+
+
+A drawback of CAM is that it requires feature maps to directly precede softmax layers, so it is only applicable to a particular kind of CNN architectures performing global average pooling over convolutional maps immediately prior to prediction (\ie conv feature maps $\rightarrow$ global average pooling $\rightarrow$ softmax layer).
+%so it is not generally applicable. Specifically, CAM is only applicable to a particular kind of CNN architectures (conv feature maps $\rightarrow$ global average pooling $\rightarrow$ softmax layer).
+Such architectures may achieve inferior accuracies compared to general networks on some tasks (\eg image classification) or may simply be inapplicable to any other tasks (\eg image captioning or VQA).
+%it only applies to specially-designed architectures which lead to respectable yet reduced accuracies.
+We introduce a new way of combining feature maps using the gradient signal that does not require \emph{any} modification in the network architecture.
+This allows our approach to be applied to off-the-shelf CNN-based architectures,
+including those for image captioning and visual question answering.
+For a fully-convolutional architecture, CAM is a special case of \gcam{}.
+% (ignoring rectification/normalization for visualization purposes).
+% Thus, \gcam{} is a generalization to CAM.
+%for a fully-convolutional architecture, except for the ReLU at the end (\ref{eq:gcam}), \gcam{} is exactly the same as CAM and hence our approach can be thought of as a generalization of CAM.
+%Lastly, for a fully-convolutional architecture, \gcam{} is exactly the same as CAM and hence our approach can be thought of as a generalization of CAM.
+
+
+%Moreover, in contrast to prior work, this approach can be used to localize
+%discriminative regions of the input space for a variety of CNN-based multimodal
+%tasks, such as image captioning and visual question answering.
+
+% occlusion based vis / localization
+Other methods approach localization by classifying perturbations of the input image.
+Zeiler and Fergus~\cite{zeiler_eccv14} perturb inputs by occluding patches and classifying the occluded image, typically resulting in lower classification scores for relevant objects when those objects are occluded.
+%By moving the ablated patch around the image in a grid a localization map can be produced.
+This principle is applied for localization in \cite{bazzani2016self}. % and \cite{li_cvpr16}.
+Oquab \etal~\cite{oquab_cvpr14} classify many patches containing a pixel then average these patch-wise
+scores to provide the pixel's class-wise score.
+Unlike these, our approach achieves localization in one shot; it only requires a single forward and a partial backward pass per image and thus is typically an order of magnitude more efficient.
+In recent work, Zhang~\etal~\cite{zhang2016top} introduce contrastive Marginal Winning Probability (c-MWP), a probabilistic Winner-Take-All formulation for modelling the top-down attention for neural classification models which can highlight discriminative regions. 
+This is computationally more expensive than \gcam{} and only works for
+image classification CNNs. 
+Moreover, \gcam{} outperforms c-MWP in quantitative and qualitative evaluations (see \refsec{sec:localization} and \refsec{sec:sup_pointing}).
+%\rp{In concurrent work Zhang~\etal ~\cite{zhang2016top} introduce contrastive Marginal Winning Probability (c-MWP), a probabilistic Winner-Take-All formulation for modelling the top-down attention for neural classification models.
+%    While c-MWP can also be used to highlight discriminative regions that support a classifiers's decision, it has the following dis-advantages compared to \gcam{}: \textbf{1.} c-MWP can only work for image classification CNNs, while \gcam{} can be used to produce explanations for \emph{any} architecture containing CNN as a submodule.
+%    \textbf{2.} c-MWP is about twice slower, as it requires a forward pass along with 2 backward passes (one for the given class `X', and one for non-class `X'). \textbf{3.} c-MWP tends to highlight arbitrary regions for non-existent categories (see supplementary). \textbf{4.} c-MWP maps for imageNet trained CNNs are fairly noisy, which leads to worse localization (see \secref{sec:localization}).
+%}
+%\todo need to site Yash's EMNLP paper on perturbing sentence in the context of VQA- after it is accepted
+% Seed, Expand and Constrain: Three Principles for Weakly-Supervised Image Segmentation (seems like a combination of previous ideas like CAM, Simonyan/Vedaldi/Zisserman, GAP, etc.)
+
+% Recent works such as above claim that Fully Connected layers make the model less interpretable. Hence they had to remove the fully connected layers and make (significant?) changes to the network architecture in-order to make it more interpretable. Namely they replace the fully connected layers with Global Average Pooling and learn a weight matrix that can produce the final output. \rp{Stress the tradeoff which makes interpretable models less accurate.}  Our method can help
+
+% We show that masking guided backpropagation with our localization technique can further improve the quality of visualizations and boost interpretability of deep models without having to make architectural changes, thus not sacrificing accuracy for interpretability.
+
+%\ad{
+%    In \secref{sec:approach} we first describe our approach \gcam{} and formalize its connections with CAM.
+%    Next, \secref{sec:localization} covers evaluation of localization ability on ILSVRC 2014~\cite{ilsvrc15} and \secref{sec:human_evaluation} describes human studies conducted to assess model trust.
+%    Finally, in \secref{sec:diagnose} we use \gcam{} as a diagnostic tool to analyze failure modes of a classification network and in \secref{sec:vqa} we demonstrate the broad applicability of \gcam{} in explaining predictions from off-the-shelf captioning and visual question answering models.
+%}

@@ -1,0 +1,17 @@
+\vspace{-18pt}
+\section{Analyzing Residual Networks}\label{sec:sup_resnet_analysis}
+\vspace{-5pt}
+
+
+In this section, we perform Grad-CAM on Residual Networks (ResNets). In particular, we analyze the 200-layer architecture trained on ImageNet\footnote{We use the 200-layer ResNet architecture from \url{https://github.com/facebook/fb.resnet.torch.}}.
+
+Current ResNets~\cite{he_cvpr15} typically consist of residual blocks.
+One set of blocks use identity skip connections (shortcut connections between two layers having identical output dimensions).
+These sets of residual blocks are interspersed with downsampling modules that alter dimensions of propagating signal.
+As can be seen in \reffig{fig:sup_resnet} our visualizations applied on the last convolutional layer can correctly localize the cat and the dog.
+\gcam{} can also visualize the cat and dog correctly in the residual blocks of the last set.
+However, as we go towards earlier sets of residual blocks with different spatial resolution, we see that \gcam{} fails to localize the category of interest (see last row of \reffig{fig:sup_resnet}).
+We observe similar trends for other ResNet architectures (18 and 50-layer).
+
+
+

@@ -1,0 +1,104 @@
+\vspace{-10pt}
+\section{Evaluating Visualizations}\label{sec:human_evaluation}
+
+\ad{In this section, we describe the human studies and experiments we conducted to understand
+    the interpretability \vs faithfulness tradeoff of our approach to model predictions.}
+Our first human study evaluates the main premise of our approach -- are \gcam{} visualizations more
+class discriminative than previous techniques?
+\mac{Having established that, we turn to understanding whether it can lead an end user to trust
+    the visualized models appropriately.
+    For these experiments, we compare VGG-16 and AlexNet finetuned on PASCAL VOC 2007
+    \texttt{train} and visualizations evaluated on \texttt{val}.}
+
+\vspace{-15pt}
+\subsection{Evaluating Class Discrimination} \label{sec:class_disc}
+
+\mac{In order to measure whether \gcam{} helps distinguish between classes,
+we select images from the PASCAL VOC 2007 val set, which contain exactly $2$ annotated categories
+and create visualizations for each one of them.}
+For both VGG-16 and AlexNet CNNs, we obtain \rp{category-specific} visualizations using four techniques:
+\dec{}, \gb{}, and \gcam{} versions of each of these methods (\cdec{} and \cgb{}).
+We show these visualizations to 43 workers on Amazon Mechanical Turk (AMT) and ask
+them ``Which of the two object categories is depicted in the image?''
+(shown in \figref{fig:human_studies}).
+
+
+
+
+
+Intuitively, a good prediction explanation is one that produces discriminative visualizations for the class of interest.
+The experiment was conducted using all 4 visualizations for 90 image-category pairs (\ie 360 visualizations); 9 ratings were collected for each image,
+evaluated against the ground truth and averaged to obtain the accuracy in \reftab{tab:eval_vis}.
+When viewing \cgb{}, human subjects can correctly identify the category being visualized in $61.23$\%
+of cases (compared to $44.44$\% for \gb{}; thus, \gcam{} improves human performance by $16.79$\%).
+Similarly, we also find that \gcam{} helps make \dec{} more class-discriminative
+(from $53.33$\% $\rightarrow$ $60.37$\%). \cgb{} performs the best among all methods.
+Interestingly, our results indicate that \dec{} is more class-discriminative
+than \gb{} ($53.33$\% \vs $44.44$\%),
+although \gb{} is more aesthetically pleasing.
+To the best of our knowledge, our evaluations are the first to quantify \mac{this subtle difference.}
+
+
+
+\begin{table}[h!]
+\vspace{-15pt}
+\centering
+\resizebox{.48\textwidth}{!}{
+    \begin{tabular}{c p{3.0cm} p{1.7cm} p{3.1cm}}\toprule
+        \textbf{Method} & \textbf{Human Classification Accuracy} & \textbf{Relative Reliability} & \textbf{Rank Correlation \;\;\; w/ Occlusion} \\
+        \midrule
+        \gb{}  & 44.44 & +1.00 & 0.168 \\
+        \cgb{} & 61.23 & +1.27 & 0.261 \\
+        \bottomrule
+    \end{tabular}
+}
+    \vspace{2pt}
+    \caption{\review{Quantitative Visualization Evaluation.
+\cgb{} enables humans to differentiate between visualizations of different classes (Human Classification Accuracy) and 
+pick more reliable models (Relative Reliability). It also accurately reflects the behavior of the model (Rank Correlation w/ Occlusion).}}
+\label{tab:eval_vis}
+\end{table}
+
+\vspace{-15pt}
+\subsection{Evaluating Trust}
+Given two prediction explanations, we evaluate which seems more trustworthy.
+We use AlexNet and VGG-16 to compare \gb{} and \cgb{} visualizations, noting
+that VGG-16 is known to be more reliable than AlexNet with an accuracy of $79.09$ mAP
+(\vs $69.20$ mAP) on PASCAL classification.
+In order to tease apart the efficacy of the visualization from the accuracy of the model being visualized, we consider only those instances where \emph{both} models made the same prediction as ground truth. %
+Given a visualization from AlexNet and one from VGG-16, and the predicted object category, \rp{54 AMT workers} were instructed to rate the reliability of the models relative to each other on a scale of clearly more/less reliable (+/-$2$), slightly more/less reliable (+/-$1$), and equally reliable ($0$).
+This interface is shown in \figref{fig:human_studies}.
+To eliminate any biases, VGG-16 and AlexNet were assigned to be `model-1' with approximately equal probability.
+Remarkably, as can be seen in \reftab{tab:eval_vis}, we find that human subjects are able to identify the more accurate
+classifier (VGG-16 over AlexNet) \emph{\iccv{simply from the prediction explanations,
+despite both models making identical predictions.}}
+With \gb{}, humans assign VGG-16 an average score of $1.00$ which means that it is
+slightly more reliable than AlexNet, while \cgb{} achieves a higher score of $1.27$
+which is closer to saying that VGG-16 is clearly more reliable.
+Thus, our visualizations can help users place trust in a model that generalizes better,
+just based on individual prediction explanations.
+
+
+
+\vspace{-20pt}
+\subsection{Faithfulness \vs Interpretability}\label{sec:occ}
+
+Faithfulness of a visualization to a model is its ability to accurately explain the function learned by the model.
+Naturally, there exists a trade-off between the interpretability and faithfulness of a visualization --
+a more faithful visualization is typically less interpretable and \viceversa.
+In fact, one could argue that a fully faithful explanation is the entire description of the model, which in the case of deep models is not interpretable/easy to visualize.
+We have verified in previous sections that our visualizations are reasonably interpretable.
+We now evaluate how faithful they are to the underlying model.
+One expectation is that our explanations should be locally accurate, \ie in the vicinity of the input data point, our explanation should be faithful to the model~\cite{lime_sigkdd16}.
+
+
+For comparison, we need a reference explanation with high local-faithfulness.
+One obvious choice for such a visualization is image occlusion~\cite{zeiler_eccv14}, where we measure the difference in CNN scores when patches of the input image are masked. %
+\rp{Interestingly, patches which change the CNN score are also patches to which \gcam{} and \cgb{} assign high intensity, achieving rank correlation $0.254$ and $0.261$ (\vs $0.168$, $0.220$
+and $0.208$ achieved by \gb{}, c-MWP and CAM respectively) averaged over 2510
+images in the PASCAL 2007 val set. This shows that \gcam{} is more faithful to
+the original model compared to prior methods.
+Through localization experiments and human studies, we
+see that \gcam{} visualizations are \emph{more interpretable}, and through
+correlation with occlusion maps, we see that \gcam{} is \emph{more faithful} to the model.}
+

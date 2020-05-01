@@ -8,5 +8,10 @@
 \BOOKMARK [3][-]{subsubsection.2.2.1}{KNN based Methods}{subsection.2.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.2.2}{K Means Clustering Based Methods}{subsection.2.2}% 9
 \BOOKMARK [2][-]{subsection.2.3}{Deep Learning Methods}{section.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.3.1}{U-Nets}{subsection.2.3}% 11
-\BOOKMARK [1][-]{section.3}{Bibliography}{}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Conv Encoder-Decoder Architecture}{subsection.2.3}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.2}{U-Nets}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Grad-CAM : Visual Explanations from Deep Networks via Gradient-based Localization}{subsection.2.3}% 13
+\BOOKMARK [1][-]{section.3}{Proposed Methodology}{}% 14
+\BOOKMARK [2][-]{subsubsection.3.0.1}{The Problem Statement}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.0.2}{Dataset}{subsubsection.3.0.1}% 16
+\BOOKMARK [1][-]{section.4}{Bibliography}{}% 17
