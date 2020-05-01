@@ -6,4 +6,33 @@ George Kour and Raid Saabne.
 \newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
   International Conference on}, pages 417--422. IEEE, 2014.
 
+\bibitem{greenberg2006improved}
+Shlomo Greenberg and Daniel Kogan.
+\newblock Improved structure-adaptive anisotropic filter.
+\newblock {\em Pattern Recognition Letters}, 27(1):59--65, 2006.
+
+\bibitem{wang2008structure}
+Wei Wang, Jinghuai Gao, and Kang Li.
+\newblock Structure-adaptive anisotropic filter with local structure tensors.
+\newblock In {\em 2008 Second International Symposium on Intelligent
+  Information Technology Application}, volume~2, pages 1005--1010. IEEE, 2008.
+
+\bibitem{kurt2012medical}
+Bur{\c{c}}in Kurt, Vasif~V Nabiyev, and Kemal Turhan.
+\newblock Medical images enhancement by using anisotropic filter and clahe.
+\newblock In {\em 2012 International Symposium on Innovations in Intelligent
+  Systems and Applications}, pages 1--4. IEEE, 2012.
+
+\bibitem{montagnat2003anisotropic}
+Johan Montagnat, Maxime Sermesant, Herv{\'e} Delingette, Gr{\'e}goire
+  Malandain, and Nicholas Ayache.
+\newblock Anisotropic filtering for model-based segmentation of 4d cylindrical
+  echocardiographic images.
+\newblock {\em Pattern Recognition Letters}, 24(4-5):815--828, 2003.
+
+\bibitem{atkins1998fully}
+M~Stella Atkins and Blair~T Mackiewich.
+\newblock Fully automatic segmentation of the brain in mri.
+\newblock {\em IEEE transactions on medical imaging}, 17(1):98--107, 1998.
+
 \end{thebibliography}

@@ -17,13 +17,11 @@
 \usepackage{lipsum}
 
 \pagestyle{fancy}
-\title{AI in Medicine : Segmentation of Lymph tissues and localization of Cancer cells}
+\title{AI in Medicine : Identification and Localization of Metastatic Tissues in histopathelogical scans of Lymph Nodes} 
 
 
 \author{
-  Spandan Ghosh\thanks{Use footnote for providing further
-    information about author (webpage, alternative
-    address)---\emph{not} for acknowledging funding agencies.} \\
+    Spandan Ghosh\thanks{Apart from the above mentioned email address, several relevant background knowledge and information is available on \url{https://spandanji.github.io}}\\
     Department of \emph{Electronics and Communication Engineering}\\
   Institute of Engineering \& Management\\
   Kolkata, India \\
@@ -88,9 +86,32 @@ The Objective of this project is to achieve the localization of cancerous cells 
     \end{figure}
 \end{center}
 
+In Fig \ref{fig:2} , we the images we see are the input images. These are the histopathelogical scans of lymph node sections. The data is such that each scan is labelled healthy and unhealthy. For this dataset we do not have a segmentation map available, and yet our objective shall be to localize the areas of interest which have caused the activation to be positive or negative. In other words we shall aim to effectively superimpose heat maps as shown in Fig \ref{fig:3} such that we solve the purpose of segmentation as surely such regions of interests are the patterns corresponding to the scan being healthy or unhealthy ie. they are the cancerous or metastatic regions. 
+\subsection{Organization of the Report}
+    This report shall be devided into several sections. We shall first have a look at the various literature that discusses approaches realated to our problem statement and decide on the pros and cons of such approaches. We shall be diving deep into the analysis of these approaches and then discuss our approach. 
+
+    All prerequisite mathematical requirements shall also be discussed. The reasoning shall be provided behind the choice of the chosen model. The Dataset, training process etc. shall be discussed in detail. In addition to that we shall be covering the model itself as well as hyperparameter optimization.
+    
+\newpage
+\section{Literature Review / Related works} 
+Whenever someone discusses the works on segmentation, the great variety of work cannot be brought under a single banner. There is a great deal of work in digital image processing, classical machine learining, deep learning among several other fields that have greatly contributed to the development of the current state of the art in segmentation and localization. We will look at such pieces of literature in this section.
+\subsection{Classical Image Processing}
+Several advances has been made in the field of Digital Image processing for clustering and seperation of pixels. Several filters like the Gaussian blur, median blur etc. help in denoising images but one that deserves a special mention is the Anisotropic filter. These generallt numerically estimate the solution of a differentiable equation. Adaptive anisotropic filters have made the choice of the parameters involved fairly simple. This is evident from the work of Greenberg et. al. \cite{greenberg2006improved} where they improve the structure-adaptive anisotropic filtering approach using an elliptical kernel, a non-linear filtering function, and a more robust-to-noise technique for oriented pattern direction. Wang et.al. \cite{wang2008structure} proposed a new structure-adaptive anisotropic filtering scheme based on the local structure tensor. They utilized the local structure tensor to measure image local anisotropic features and estimate the orientation of image structures, and these informations are then used to shape and control the anisotropic Gaussian kernel. The proposed filter denoises noisy images while image structures such as corners, junctions and edges are well preserved. Their experimental results clearly show that the proposed scheme outperforms some other adaptive filters such as the adaptive Wiener filter, Weickertpsilas edge enhancing diffusion (EED) filter and Yangs structure-adaptive anisotropic filter in terms of both mean square errors ('MSE') and visual quality, and the one based on the nonlinear structure tensor (NLST) can give much better denoising results than that based on the linear structure tensor (LST), particularly in edge regions.
+
+Kurt et.al. \cite{kurt2012medical} provides a use case in medical images for image enhancement using anisotropic filter and clahe. Montagnat et.al. \cite{montagnat2003anisotropic} used anisotropic filtering for model based segmentation of 4D cylindrical echocardiographic images.This paper presents a 4D (3D+time) echocardiographic image anisotropic filtering and a 3D model-based segmentation system. To improve the extraction of left ventricle boundaries, they rely on two preprocessing stages. First, they applied an anisotropic filter that reduces image noise. This 4D filter takes into account the spatial and temporal nature of echocardiographic images. Second, they adapted the usual gradient filter estimation to the cylindrical geometry of the 3D ultrasound images. The reconstruction of the endocardium takes place by deforming a deformable simplex mesh having an a priori knowledge of left ventricle shape and that is guided by a region-based data attraction force. The external force formulation improves the segmentation robustness against noise and outliers. They illustrated their method by showing experimental results on very challenging sparse and noisy ultrasound images of the heart and by computing quantitative measurements of the left ventricle volume. 
+
+One field of particular interest regarding the success of Digital Image Processing are MRI images of the brain. Atkins et.al. \cite{atkins1998fully} demonstrated the use of such filters in the Fully automatic segmentation of the brain in MRI to identify tumor locations.The output can be seen in Fig \ref{fig:4}. 
+
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=105mm,height=65mm]{images/mri.jpeg}}
+        \caption{Tumor segmentation}
+        \label{fig:4}
+    \end{figure}
+\end{center}
+ 
 \newpage
 \bibliographystyle{unsrt}  
-
 \bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
 %%% and comment out the ``thebibliography'' section.
 
