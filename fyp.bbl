@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{kour2014real}
 George Kour and Raid Saabne.
@@ -34,5 +34,45 @@ Johan Montagnat, Maxime Sermesant, Herv{\'e} Delingette, Gr{\'e}goire
 M~Stella Atkins and Blair~T Mackiewich.
 \newblock Fully automatic segmentation of the brain in mri.
 \newblock {\em IEEE transactions on medical imaging}, 17(1):98--107, 1998.
+
+\bibitem{vrooman2007multi}
+Henri~A Vrooman, Chris~A Cocosco, Fedde van~der Lijn, Rik Stokking, M~Arfan
+  Ikram, Meike~W Vernooij, Monique~MB Breteler, and Wiro~J Niessen.
+\newblock Multi-spectral brain tissue segmentation using automatically trained
+  k-nearest-neighbor classification.
+\newblock {\em Neuroimage}, 37(1):71--81, 2007.
+
+\bibitem{steenwijk2013accurate}
+Martijn~D Steenwijk, Petra~JW Pouwels, Marita Daams, Jan~Willem van Dalen,
+  Matthan~WA Caan, Edo Richard, Frederik Barkhof, and Hugo Vrenken.
+\newblock Accurate white matter lesion segmentation by k nearest neighbor
+  classification with tissue type priors (knn-ttps).
+\newblock {\em NeuroImage: Clinical}, 3:462--469, 2013.
+
+\bibitem{havaei2014efficient}
+Mohammad Havaei, Pierre-Marc Jodoin, and Hugo Larochelle.
+\newblock Efficient interactive brain tumor segmentation as within-brain knn
+  classification.
+\newblock In {\em 2014 22nd International Conference on Pattern Recognition},
+  pages 556--561. IEEE, 2014.
+
+\bibitem{ng2006medical}
+HP~Ng, SH~Ong, KWC Foong, PS~Goh, and WL~Nowinski.
+\newblock Medical image segmentation using k-means clustering and improved
+  watershed algorithm.
+\newblock In {\em 2006 IEEE southwest symposium on image analysis and
+  interpretation}, pages 61--65. IEEE, 2006.
+
+\bibitem{dhanachandra2015image}
+Nameirakpam Dhanachandra, Khumanthem Manglem, and Yambem~Jina Chanu.
+\newblock Image segmentation using k-means clustering algorithm and subtractive
+  clustering algorithm.
+\newblock {\em Procedia Computer Science}, 54:764--771, 2015.
+
+\bibitem{ronneberger2015u}
+Olaf Ronneberger, Philipp Fischer, and Thomas Brox.
+\newblock U-net: Convolutional networks for biomedical image segmentation.
+\newblock In {\em International Conference on Medical image computing and
+  computer-assisted intervention}, pages 234--241. Springer, 2015.
 
 \end{thebibliography}

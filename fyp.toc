@@ -4,3 +4,9 @@
 \contentsline {subsection}{\numberline {1.3}Organization of the Report}{5}{subsection.1.3}% 
 \contentsline {section}{\numberline {2}Literature Review / Related works}{6}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Classical Image Processing}{6}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Classical Machine Learning}{7}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}KNN based Methods}{7}{subsubsection.2.2.1}% 
+\contentsline {subsubsection}{\numberline {2.2.2}K Means Clustering Based Methods}{8}{subsubsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Deep Learning Methods}{9}{subsection.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}U-Nets}{9}{subsubsection.2.3.1}% 
+\contentsline {section}{\numberline {3}Bibliography}{11}{section.3}% 
