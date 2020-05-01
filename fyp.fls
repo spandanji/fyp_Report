@@ -227,6 +227,9 @@ INPUT ./images/k-means.png
 INPUT images/unet.png
 INPUT ./images/unet.png
 INPUT ./images/unet.png
+INPUT images/segmapunet.png
+INPUT ./images/segmapunet.png
+INPUT ./images/segmapunet.png
 INPUT fyp.bbl
 INPUT fyp.bbl
 INPUT fyp.aux
@@ -243,6 +246,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb

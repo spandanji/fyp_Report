@@ -158,16 +158,33 @@ The softmax function is as shown in eq \ref{softmax}
 \end{equation}
 
 where $a_k(\vec(x)$ is the activation of the last layer ie. the 1x1 Conv layer. This Softmax activation converts the ouput vector into probabilities and the elements of the obtained vector adds up to 1 along the dimension in which softmax is applied. Let us have a look at the cross entropy function as shown in the paper in eq. \ref{crossentropy} .
+where $ \ell:\Omega \rightarrow {1,\dots,K} $ is the true label of each pixel and $ w:\Omega \rightarrow \mathbb{R} $  is a weight map that they introduced to give some pixels more importance in the training.
 
 \begin{equation} 
     \label{crossentropy} 
         E = \sum_{\vec{x} \in \Omega} w(\vec{x}) \log({p}_{\ell(\vec{x})}(\vec{x}))  
 \end{equation}
+
+Let us try and understand why cross entropy was used in the first place. Any segmentation map, as seen in the cover picture has labels its pixels into one of a finite set of classes. For Eg, lets have a look at the following segmentation map in \ref{fig:7}.
+
+\begin{center}
+    \begin{figure}[!h!t!b]
+        \centerline{\includegraphics[width=95mm,height=75mm]{images/segmapunet.png}}
+        \caption{A segmentation map using UNET. Note that each pixel in the given segmentation map is one of 3 classes of the 3 different colours}
+        \label{fig:7}
+    \end{figure}
+\end{center}
+
+As entropy is a quantification of the uncertainty in a system, the approach taken in the loss is a probabilistic one which aims to reduce the uncertainty in the class most probable for each pixel.It is maximum when all events are equiprobable and zero when one event is certain and the remaining are zero (In our case, the exact nature of the pixel is certain).There is an inherent need to give some pixels more importance than others in medical image analysis. For eg. Tumor cells may be more important to be correctly segmented than healthy cells as we definitely do not want to label a sick patient healthy. Additionally such a weight map must also deal with the class imbalances as the healthy cells are much more in number than the unhealthy ones. Lets have the formal definition of the weight map from the paper after evaluation of the seperation borders from morphological operations:
+
+\begin{equation} 
+    \label{weightmap}
+    w(\vec{x}) = w_c(\vec{x}) + w_0 \cdot \exp\left( - \frac{(d_1(\vec{x}) + d_2(\vec{x}))^2}{2\sigma^2}\right ) 
+\end{equation}
 \newpage
 \section{Bibliography}
 \bibliographystyle{unsrt}  
-\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
-%%% and comment out the ``thebibliography'' section.
+\bibliography{references}  
 
 
 %%% Comment out this section when you \bibliography{references} is enabled.

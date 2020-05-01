@@ -9,4 +9,4 @@
 \contentsline {subsubsection}{\numberline {2.2.2}K Means Clustering Based Methods}{8}{subsubsection.2.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Deep Learning Methods}{9}{subsection.2.3}% 
 \contentsline {subsubsection}{\numberline {2.3.1}U-Nets}{9}{subsubsection.2.3.1}% 
-\contentsline {section}{\numberline {3}Bibliography}{11}{section.3}% 
+\contentsline {section}{\numberline {3}Bibliography}{12}{section.3}% 
